@@ -97,15 +97,63 @@ for (let i = 0; i < 4; i++) {
 
 /*
 --------
-    
+   *
+  **
+ ***
+****    
 */
 for (let i = 0; i < 4; i++) {
     let row = "";
-    for (let j = 0; j < 4 - ( i + 1); j++) {
+    for (let j = 0; j < 4 - (i + 1); j++) {
         row = row + " ";
     }
     for (let k = 0; k < i + 1; k++) {
         row = row + "*";
     }
     console.log(row);
+}
+
+/*
+1
+10
+101
+1010
+10101
+*/
+for (let i = 0; i < 5; i++) {
+    let row = "";
+    let switchToggle = 1;
+    for (let j = 0; j <= i; j++) {
+        row = row + switchToggle;
+        if (switchToggle == 1) {
+            switchToggle = 0;
+        } else {
+            switchToggle = 1;
+        }
+    }
+
+    console.log(row)
+}
+
+/*
+1
+01
+010
+1010
+10101
+*/
+let switchToggle = 1;
+for (let i = 0; i < 5; i++) {
+    let row = "";
+    
+    for (let j = 0; j <= i; j++) {
+        row = row + switchToggle;
+        if (switchToggle == 1) {
+            switchToggle = 0;
+        } else {
+            switchToggle = 1;
+        }
+    }
+
+    console.log(row)
 }
