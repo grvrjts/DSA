@@ -1,4 +1,4 @@
-let arr = [3,2,2,3];
+let arr = [0,1,2,2,3,0,4,2];
 function removeElement(arr, val) {
     let index = 0;
     for(let i = 0; i < arr.length; i++) {
