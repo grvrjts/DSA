@@ -20,6 +20,15 @@ function singleNumber(nums) {
 
 let nums = [2, 2, 1, 4, 4, 5, 5, 1, 3];
 const result = singleNumber(nums);
-console.log(result);
+console.log("Result first approach: ",result);
 
 // Second Approach.
+function singleNUmber1(nums){
+    let xor = 0;
+    for(let i =0; i< nums.length; i++){
+        xor = nums[i] ^ xor;
+    }
+    return xor;
+}
+const result1 = singleNUmber1(nums);
+console.log("Result second approach: ", result1);
