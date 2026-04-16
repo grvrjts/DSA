@@ -1,4 +1,9 @@
-/* Problem Statement: Write a function sum(n) that calculates the sum of the first n natural numbers using recursion. */
+/**
+ * Problem Statement:
+ * ==================
+ * Write a function that calculates the sum of the first n natural numbers
+ * using recursion.
+ */
 
 function sumOfNNumbars(n) {
     if (n == 0) return 0;
@@ -7,3 +12,14 @@ function sumOfNNumbars(n) {
 let n = 5;
 let result = sumOfNNumbars(n);
 console.log("Result: ", result);
+
+
+/**
+ * Complexity Analysis:
+ * ===================
+ * Time Complexity:  O(n)
+ *   - One recursive call per value from n to 0
+ *
+ * Space Complexity: O(n)
+ *   - Due to recursive call stack
+ */
