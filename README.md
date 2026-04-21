@@ -64,3 +64,44 @@ This sequence appears frequently in nature (e.g., flower petals, pine cones, and
 
 ### Linear Search
 Linear Search is a simple search algorithm used to find a specific element in an array. It checks each element of the array one by one until the target value is found or the end of the array is reached.
+
+#### Examples
+
+**Example 1:**
+```
+Input: arr = [2, 4, 7, 10], target = 10
+Output: 3
+Explanation: 10 is found at index 3
+```
+
+**Example 2:**
+```
+Input: arr = [6, 8, 0, 3], target = 5
+Output: -1
+Explanation: 5 is not present in the array
+```
+
+#### Approach
+1. Start from the first element of the array
+2. Compare the current element with the target value
+3. If a match is found, return the index
+4. If the loop ends without finding the target, return `-1`
+
+### Binary Search
+Binary Search is an efficient algorithm used to find the position of a target value within a sorted array. Unlike linear search, it repeatedly divides the search interval in half, significantly reducing the number of comparisons.
+
+#### Example
+```
+Input: [1, 3, 5, 7, 9]
+Target: 7
+Output: 2 (index position)
+```
+
+#### Approach
+1. Set `left = 0` and `right = nums.length - 1`
+2. While `left <= right`:
+   - Calculate `middle = Math.floor((left + right) / 2)`
+   - If `nums[middle] === target`, return `middle`
+   - If `target < nums[middle]`, discard the right half: `right = middle - 1`
+   - Else discard the left half: `left = middle + 1`
+3. If the target is not found, return `-1`
