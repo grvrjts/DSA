@@ -105,3 +105,12 @@ Output: 2 (index position)
    - If `target < nums[middle]`, discard the right half: `right = middle - 1`
    - Else discard the left half: `left = middle + 1`
 3. If the target is not found, return `-1`
+
+### Time & Space Complexity
+
+**Time Complexity:**
+- Best Case: O(1) - when the target is found at the middle initially.
+- Worst Case: O(log n) - the array is halved every iteration.
+- Average Case: O(log n)
+
+**Space Complexity:** O(1) - No additional data structures are used.
