@@ -114,3 +114,74 @@ Output: 2 (index position)
 - Average Case: O(log n)
 
 **Space Complexity:** O(1) - No additional data structures are used.
+
+
+### Bubble Sort
+Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+This process continues until the array is sorted.
+After each pass, the largest unsorted element “bubbles up” to its correct position at the end of the array.
+
+#### Approach
+- Iterate through the array multiple times.
+- In each pass, compare adjacent elements.
+- If the current element is greater than the next one, swap them.
+- After each pass, the largest unsorted element moves to its correct position at the end.
+- Use a boolean flag (`isSwapped`) to track whether any swapping happened.
+- If no swaps occur during a full pass, the array is already sorted and the algorithm can exit early.
+- Repeat this process for `n - 1` passes, or until no swaps are needed.
+
+#### Time & Space Complexity
+- **Best Case:** O(n) when the array is already sorted (with the `isSwapped` optimization).
+- **Worst Case:** O(n²) when the array is in reverse order.
+- **Space Complexity:** O(1) because Bubble Sort sorts in place with no extra space used.
+
+### Selection Sort
+Selection Sort is a simple comparison-based sorting algorithm that divides the array into a sorted subarray and an unsorted subarray. The algorithm repeatedly selects the smallest element from the unsorted portion and moves it to the end of the sorted portion.
+
+#### Example
+```
+Input: [4, 5, 1, 3, 9]
+Output: [1, 3, 4, 5, 9]
+```
+
+#### Approach
+- Iterate over the array from index `0` to `n - 2`.
+- For each index `i`, assume the element at `i` is the minimum in the unsorted part.
+- Run an inner loop from `j = i + 1` to `n - 1` to find the actual minimum element.
+- If a smaller element is found, update `min_idx`.
+- After the inner loop, swap the element at `i` with the element at `min_idx` (if they are not the same).
+- Repeat until the entire array is sorted.
+
+#### Time & Space Complexity
+- **Time Complexity:** O(n²) in best, average, and worst cases.
+- **Comparisons:** Roughly `n * (n - 1) / 2` comparisons are performed.
+- **Space Complexity:** O(1) because Selection Sort is an in-place algorithm.
+
+#### Dry Run
+```
+Input: arr = [4, 5, 1, 3, 9]
+
+i = 0 → min_idx = 0
+   j = 1 → arr[1] = 5 > arr[0] = 4 → no change
+   j = 2 → arr[2] = 1 < arr[0] = 4 → min_idx = 2
+   j = 3 → arr[3] = 3 > arr[2] = 1 → no change
+   j = 4 → arr[4] = 9 > arr[2] = 1 → no change
+   swap arr[0] ↔ arr[2] → [1, 5, 4, 3, 9]
+
+i = 1 → min_idx = 1
+   j = 2 → arr[2] = 4 < arr[1] = 5 → min_idx = 2
+   j = 3 → arr[3] = 3 < arr[2] = 4 → min_idx = 3
+   j = 4 → arr[4] = 9 > arr[3] = 3 → no change
+   swap arr[1] ↔ arr[3] → [1, 3, 4, 5, 9]
+
+i = 2 → min_idx = 2
+   j = 3 → arr[3] = 5 > arr[2] = 4 → no change
+   j = 4 → arr[4] = 9 > arr[2] = 4 → no change
+   no swap → [1, 3, 4, 5, 9]
+
+i = 3 → min_idx = 3
+   j = 4 → arr[4] = 9 > arr[3] = 5 → no change
+   no swap → [1, 3, 4, 5, 9]
+
+Final Sorted Array: [1, 3, 4, 5, 9]
+```
