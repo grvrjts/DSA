@@ -185,3 +185,53 @@ i = 3 → min_idx = 3
 
 Final Sorted Array: [1, 3, 4, 5, 9]
 ```
+
+Insertion Sort
+### Insertion Sort
+Insertion Sort is a simple and intuitive sorting algorithm that builds the final sorted array one element at a time.
+It works by taking each element from the input and inserting it into the correct position in the already sorted portion of the array.
+Starting from the second element, it compares the current element with the previous ones, shifting larger elements one position ahead to make space.
+This process continues until all elements are sorted.
+Insertion Sort is efficient for small or nearly sorted datasets and operates in-place without requiring extra memory.
+
+#### Approach
+1. Start from the second element (index `1`), since the first element is already "sorted".
+2. Store the current element as `curr`.
+3. Compare `curr` with the previous elements in the sorted portion.
+4. Shift larger elements one position to the right to make room.
+5. Insert `curr` at its correct position.
+6. Repeat until the entire array is sorted.
+
+#### Time & Space Complexity
+- **Best Case:** O(n), when the array is already sorted.
+- **Average Case:** O(n²)
+- **Worst Case:** O(n²), when every element must be compared and shifted back to the start.
+- **Space Complexity:** O(1), as sorting is done in place.
+
+#### Dry Run
+```
+Input: arr = [4, 5, 1, 3, 9]
+
+i = 1 → curr = 5, prev = 0
+arr[0] = 4 ≤ 5 → no shifting
+Insert curr → [4, 5, 1, 3, 9]
+
+i = 2 → curr = 1, prev = 1
+arr[1] = 5 > 1 → shift → [4, 5, 5, 3, 9]
+arr[0] = 4 > 1 → shift → [4, 4, 5, 3, 9]
+prev = -1 → stop
+Insert curr → [1, 4, 5, 3, 9]
+
+i = 3 → curr = 3, prev = 2
+arr[2] = 5 > 3 → shift → [1, 4, 5, 5, 9]
+arr[1] = 4 > 3 → shift → [1, 4, 4, 5, 9]
+arr[0] = 1 ≤ 3 → stop
+Insert curr → [1, 3, 4, 5, 9]
+
+i = 4 → curr = 9, prev = 3
+arr[3] = 5 ≤ 9 → no shifting
+Insert curr → [1, 3, 4, 5, 9]
+
+Final Sorted Array: [1, 3, 4, 5, 9]
+```
+  
