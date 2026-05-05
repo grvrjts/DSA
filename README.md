@@ -235,3 +235,63 @@ Insert curr → [1, 3, 4, 5, 9]
 Final Sorted Array: [1, 3, 4, 5, 9]
 ```
   
+### Merge Sort
+Merge Sort is a popular divide-and-conquer sorting algorithm. It divides the input array into two halves, recursively sorts each half, and then merges the sorted halves into one final sorted array.
+This algorithm is stable and guarantees O(n log n) performance in the best, average, and worst cases.
+
+#### Approach
+- **Divide:** Split the array into two halves.
+- **Conquer:** Recursively sort each half using Merge Sort.
+- **Combine:** Merge the two sorted halves into a single sorted array.
+
+#### Key Concept: Merge Step
+The merge step is the most important part. It merges two sorted arrays efficiently using a two-pointer approach:
+- Compare the current elements from both halves.
+- Add the smaller element to the result array.
+- Move the pointer forward in the half from which the element was taken.
+- Append any remaining elements once one half is exhausted.
+
+#### Time & Space Complexity
+- **Time Complexity:** O(n log n) — dividing takes O(log n) levels and merging takes O(n) per level.
+- **Space Complexity:** O(n) — additional space is required to store merged arrays.
+
+#### Dry Run
+```
+Input: nums = [4, 5, 1, 3, 9]
+
+Step 1: sortArray([4, 5, 1, 3, 9])
+mid = 2
+left = sortArray([4, 5])
+right = sortArray([1, 3, 9])
+
+---
+Step 2: sortArray([4, 5])
+mid = 1
+left = sortArray([4]) → [4]  (base case)
+right = sortArray([5]) → [5]  (base case)
+merge([4], [5]) → [4, 5]
+
+---
+Step 3: sortArray([1, 3, 9])
+mid = 1
+left = sortArray([1]) → [1]  (base case)
+right = sortArray([3, 9])
+
+Step 4: sortArray([3, 9])
+mid = 1
+left = sortArray([3]) → [3]  (base case)
+right = sortArray([9]) → [9]  (base case)
+merge([3], [9]) → [3, 9]
+
+merge([1], [3, 9]) → [1, 3, 9]
+
+---
+Step 5: merge([4, 5], [1, 3, 9])
+Compare 4 and 1 → take 1 → [1]
+Compare 4 and 3 → take 3 → [1, 3]
+Compare 4 and 9 → take 4 → [1, 3, 4]
+Compare 5 and 9 → take 5 → [1, 3, 4, 5]
+Remaining → [9] → [1, 3, 4, 5, 9]
+
+Final Sorted Array: [1, 3, 4, 5, 9]
+```
