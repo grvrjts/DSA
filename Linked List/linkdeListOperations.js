@@ -51,6 +51,39 @@ MyLinkedList.prototype.addAtIndex = function (index, value) {
         current.next = newNode;
     }
 };
+MyLinkedList.prototype.deleteAtIndex = function (index) {
+    if (index < 0 || index >= this.size) {
+        return; // Invalid index, do nothing
+    }
+    if (index == 0) {
+        this.head = this.head.next;
+        this.size--;
+        return;
+    }
+    if (index == this.size - 1) {
+        let current = this.head;
+        while (current.next && current.next.next) {
+            current = current.next;
+        }
+        current.next = null;
+        this.size--;
+        return;
+    }
+    let current = this.head;
+    let i = 0;
+    while (i < index - 1) {
+        current = current.next;
+        i++;
+    }
+    let prevNode = current;
+    let actual = current.next;
+    let nextNode = actual.next;
+    actual.next = null;
+    prevNode.next = nextNode;
+    this.size--;
+
+};
+
 
 MyLinkedList.prototype.printList = function() {
     let current = this.head;
@@ -81,3 +114,12 @@ console.log("List size:", list.size);
 list.addAtIndex(2, 50);
 list.printList();
 console.log("List size:", list.size);
+list.deleteAtIndex(3);
+console.log("List size after deletion at index 3:", list.size);
+list.printList();
+list.deleteAtIndex(0);
+console.log("List size after deletion at index 0 head case:", list.size);
+list.printList();
+list.deleteAtIndex(3);
+console.log("List size after deletion at index 3 tail case :", list.size);
+list.printList();
