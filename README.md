@@ -295,3 +295,51 @@ Remaining → [9] → [1, 3, 4, 5, 9]
 
 Final Sorted Array: [1, 3, 4, 5, 9]
 ```
+### Linked List
+A Linked List is a linear data structure where elements, called nodes, are connected using pointers. Each node stores a value and a reference to the next node. In a doubly linked list, nodes also store a reference to the previous node.
+
+#### Node Structure
+- `value`: the stored data
+- `next`: pointer to the next node
+- `prev` (optional): pointer to the previous node
+
+#### Types of Linked Lists
+**1. Singly Linked List**
+- Each node points only to the next node.
+- Traversal is one-way, from head to tail.
+- Structure: `[value | next] -> [value | next] -> [value | null]`
+
+**2. Doubly Linked List**
+- Each node points to both the next and previous nodes.
+- Traversal is bidirectional.
+- Structure: `null <- [prev | value | next] <-> [prev | value | next] -> null`
+
+#### Key Terminology
+- **Head:** The first node of the list; it is the entry point.
+- **Tail:** The last node; its `next` pointer is `null`.
+- **Node:** A single element containing data and pointers.
+- **Null:** Marks the end of the list when `next` is empty.
+
+#### Representation
+A linked list is typically represented by its `head` node. Starting from `head`, follow `next` pointers until `null`.
+
+### Array vs Linked List
+| Feature | Array | Linked List |
+|---|---|---|
+| Type | Elements stored in sequence using indexes | Nodes linked by pointers |
+| Memory Layout | Contiguous block of memory | Scattered nodes connected by pointers |
+| Size | Fixed or pre-defined; resizing is expensive | Dynamic; grows and shrinks as needed |
+| Data Stored | Values only | Value plus one or more pointers |
+| Access Time | Direct access by index: O(1) | Sequential access only: O(n) |
+| Insertion / Deletion | Costly in the middle due to shifting | Efficient at head/tail with pointer updates |
+| Memory Efficiency | No pointer overhead | Extra memory used for pointers |
+
+### When to Use Each
+| Use Case | Prefer |
+|---|---|
+| Fast index access | Array — O(1) random access |
+| Frequent insertion/deletion at head or tail | Linked List — pointer updates are O(1) |
+| Static-sized, memory-efficient storage | Array — no pointer overhead |
+| Unknown size or frequent resizing | Linked List — dynamic growth |
+| Frequent traversal and node manipulation | Linked List — better flexibility |
+
