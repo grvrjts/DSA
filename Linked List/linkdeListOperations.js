@@ -83,7 +83,18 @@ MyLinkedList.prototype.deleteAtIndex = function (index) {
     this.size--;
 
 };
-
+MyLinkedList.prototype.getValueAtIndex = function (index) {
+    if (index < 0 || index >= this.size) {
+        return -1; 
+    }
+    let i = 0;
+    let current = this.head;
+    while (i < index) {
+        current = current.next;
+        i++;
+    }
+    return current.value;
+};
 
 MyLinkedList.prototype.printList = function() {
     let current = this.head;
@@ -123,3 +134,5 @@ list.printList();
 list.deleteAtIndex(3);
 console.log("List size after deletion at index 3 tail case :", list.size);
 list.printList();
+let result = list.getValueAtIndex(2);
+console.log("Value at index 2:", result);
