@@ -86,6 +86,16 @@ MyLinkedList.prototype.getValueAtIndex = function (index) {
     return current.value;
 };
 
+MyLinkedList.prototype.getMiddleNode = function () {
+    let size = this.size;
+    let middleIndex = Math.floor(size / 2);
+    let current = this.head;
+    for (let i = 0; i < middleIndex; i++) {
+        current = current.next;
+    }
+    return current.value;
+}
+
 MyLinkedList.prototype.printList = function() {
     let current = this.head;
     let result = "";
@@ -126,3 +136,5 @@ console.log("List size after deletion at index 3 tail case :", list.size);
 list.printList();
 let result = list.getValueAtIndex(2);
 console.log("Value at index 2:", result);
+let middleValue = list.getMiddleNode();
+console.log("Middle value of the list is:", middleValue);
