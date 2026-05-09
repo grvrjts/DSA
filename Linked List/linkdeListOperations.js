@@ -86,6 +86,16 @@ MyLinkedList.prototype.getValueAtIndex = function (index) {
     return current.value;
 };
 
+/**
+ * Returns the middle node of the linked list using the slow/fast pointer technique.
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ *
+ * Use Case:
+ *   Efficient for problems like finding the start of a loop, checking palindromes,
+ *   or locating the middle element in a singly linked list.
+ */
 MyLinkedList.prototype.getMiddleNode = function () {
     let slow = this.head;
     let fast = this.head;
