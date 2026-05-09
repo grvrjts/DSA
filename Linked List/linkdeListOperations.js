@@ -87,13 +87,13 @@ MyLinkedList.prototype.getValueAtIndex = function (index) {
 };
 
 MyLinkedList.prototype.getMiddleNode = function () {
-    let size = this.size;
-    let middleIndex = Math.floor(size / 2);
-    let current = this.head;
-    for (let i = 0; i < middleIndex; i++) {
-        current = current.next;
+    let slow = this.head;
+    let fast = this.head;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
     }
-    return current.value;
+    return slow;
 }
 
 MyLinkedList.prototype.printList = function() {
