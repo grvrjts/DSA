@@ -25,7 +25,11 @@ let list = new MyLinkedList();
 list.head = node1;
 list.size = 4;
 
-
+/**
+Time and Space Complexity:
+Time Complexity: O(n), where n is the number of nodes in the list.
+Space Complexity: O(n), in the worst case we store all nodes in a set.
+**/
 MyLinkedList.prototype.hasCycle = function () {
     let current = this.head;
     let set = new Set();
