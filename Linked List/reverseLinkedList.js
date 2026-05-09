@@ -22,7 +22,11 @@ class MyLinkedList {
 let list = new MyLinkedList();
 list.head = node1;
 list.size = 3;
-
+/** 
+Time and Space Complexity:
+Time Complexity: O(n), where n is the number of nodes in the list. We visit each node once.
+Space Complexity: O(1), since we reverse the list in-place using a constant number of pointers. 
+**/
 MyLinkedList.prototype.reverse = function () {
     let prev = null;
     let current = this.head;
