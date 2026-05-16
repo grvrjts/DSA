@@ -26,6 +26,7 @@ list.head = node1;
 list.size = 4;
 
 MyLinkedList.prototype.hasCycle = function () {
+    if (this.head === null) return false;
     let slow = this.head;
     let fast = this.head.next;
     while (slow !== fast) {
@@ -40,3 +41,9 @@ MyLinkedList.prototype.hasCycle = function () {
 
 let hasCycle = list.hasCycle(); // true
 console.log("Does the linked list have a cycle?", hasCycle);
+
+/*
+Time and space complexity
+- Time: O(n) — where n is the number of nodes in the list.
+- Space: O(1) — constant extra space.
+*/
