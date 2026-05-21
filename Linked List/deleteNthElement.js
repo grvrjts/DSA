@@ -32,4 +32,5 @@ list.size = 5;
 
 MyLinkedList.prototype.deleteNthElement = function (head, n) {
     if (n <= 0) return head; // Invalid n, return original list
+    
 }
