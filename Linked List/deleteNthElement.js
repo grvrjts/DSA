@@ -32,5 +32,23 @@ list.size = 5;
 
 MyLinkedList.prototype.deleteNthElement = function (head, n) {
     if (n <= 0) return head; // Invalid n, return original list
-    
+    let senitnel = new Node(0); // Create a sentinel node
+    senitnel.next = head;
+
+    let length = 0;
+    while (head) {
+        head = head.next;
+        length++;
+    }
+    let prevPos = length - n; // Calculate the position of the node to delete from the start
+    let prev = senitnel; // Start from the sentinel node
+    for (let i = 0; i < prevPos; i++) {
+        prev = prev.next; // Move to the node just before the one to delete
+    }
+    prev.next = prev.next.next; // Bypass the node to delete
+    return senitnel.next; // Return the updated list
+
 }
+
+list.deleteNthElement(list.head, 2); // Deletes the 2nd last element (20 in this case)
+console.log(JSON.stringify(list.head)); // Output the updated list
