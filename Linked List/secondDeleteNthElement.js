@@ -53,3 +53,9 @@ MyLinkedList.prototype.deleteNthElement = function (head, n) {
 
 list.deleteNthElement(list.head, 2); // Deletes the 2nd last element (20 in this case)
 console.log(JSON.stringify(list.head)); // Output the updated list
+
+/*
+Time and Space Complexity:
+- Time Complexity: O(n)
+- Space Complexity: O(1)
+*/
