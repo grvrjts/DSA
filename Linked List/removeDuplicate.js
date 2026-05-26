@@ -1,3 +1,9 @@
+/*
+Problem Statement:
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once.
+Return the linked list sorted as well.
+*/
+
 class Node {
     constructor(value) {
         this.value = value || 0;
@@ -16,7 +22,7 @@ node1.next = node2;
 node2.next = node3;
 node3.next = node4;
 node4.next = node5;
-node5.next = null; // Creates a palindrome in the list
+node5.next = null; // End of the sorted linked list
 
 class MyLinkedList {
     constructor() {
