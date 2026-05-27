@@ -44,6 +44,26 @@ list2.head = node6;
 list2.size = 5;
 
 
+/*
+    Annotated explanation — why modifying `current` updates `dummyHead`:
+
+    - `let dummyHead = new Node(0);`
+    - `let current = dummyHead;` // both variables reference the same Node object
+
+    Inside the loop:
+        `current.next = new Node(digit);`  -> mutates the object that both `current` and
+            `dummyHead` reference, so `dummyHead.next` becomes the new node.
+        `current = current.next;` -> reassigns the *variable* `current` to the newly
+            created node. This does NOT change the `dummyHead` variable — it still points to
+            the original dummy node whose `.next` chain you are building.
+
+    Simple ASCII flow for one iteration:
+        (dummyHead:0) --next--> (digitA)
+                 ^current (initially)
+        after `current = current.next` -> current points to (digitA)
+
+    Final return: `dummyHead.next` returns the head of the constructed list.
+*/
 MyLinkedList.prototype.addTwoNumbers = function (l1, l2) {
     let dummyHead = new Node(0);
     let current = dummyHead;
