@@ -1,3 +1,19 @@
+/**
+ * Adds two numbers represented by reversed singly-linked lists.
+ *
+ * Each input list stores a non-negative integer in reverse order,
+ * with one digit per node. Return a new linked list representing
+ * the sum in the same reversed format.
+ *
+ * Assumptions:
+ * - Input lists are non-empty.
+ * - Numbers do not have leading zeros, except for 0 itself.
+ *
+ * Example:
+ * (2 -> 4 -> 3) + (5 -> 6 -> 4) === 7 -> 0 -> 8  // 342 + 465 = 807
+ */
+
+
 class Node {
     constructor(value) {
         this.value = value;
