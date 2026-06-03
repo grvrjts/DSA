@@ -47,32 +47,25 @@ list2.size = 5;
 MyLinkedList.prototype.mergeTwoLists = function (l1, l2) {
     if (!l1) return l2;
     if (!l2) return l1;
-    let curr = null;
-    if (l1.value < l2.value) {
-        curr = l1;
-        l1 = l1.next;
-    } else {
-        curr = l2;
-        l2 = l2.next;
-    }
-    let start = curr;
-    while(l1 && l2){
-        if(l1.value < l2.value){
+    let dummy = new Node();
+    let curr = dummy;
+    while (l1 && l2) {
+        if (l1.value < l2.value) {
             curr.next = l1;
             l1 = l1.next;
-        }else{
+        } else {
             curr.next = l2;
             l2 = l2.next;
         }
         curr = curr.next;
     }
-    if(!l1) {
+    if (!l1) {
         curr.next = l2;
     }
-    if(!l2){
+    if (!l2) {
         curr.next = l1;
     }
-    return start;
+    return dummy.next;
 }
 const mergedListHead = list1.mergeTwoLists(list1.head, list2.head);
 console.log("Merged List Head:", JSON.stringify(mergedListHead));
