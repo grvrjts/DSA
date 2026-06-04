@@ -32,18 +32,27 @@ list1.head = node1;
 list1.size = 5;
 
 MyLinkedList.prototype.rotateRight = function (head, k) {
-    if(!head || !head.next || k === 0) return head;
+    if (!head || !head.next || k === 0) return head;
+
+    // calculate the length of the linked list
+    let length = 0;
+    let curr = head;
+    while (curr) {
+        curr = curr.next;
+        length++;
+    }
+    k = k % length;
     let slow = head;
     let fast = head;
-    for(let i= 0; i< k;i++){
+    for (let i = 0; i < k; i++) {
         fast = fast.next;
     }
-    while(fast.next){
+    while (fast.next) {
         slow = slow.next;
         fast = fast.next;
     }
     fast.next = head;
-    let newHead =  slow.next;
+    let newHead = slow.next;
     slow.next = null;
     return newHead;
 
