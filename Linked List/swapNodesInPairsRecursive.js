@@ -1,16 +1,7 @@
 /**
- * Problem: Swap Nodes in Pairs
- *
- * Given a linked list, swap every two adjacent nodes and return its head.
- * Do not modify node values; only nodes themselves may be changed.
- *
- * Example:
- * Input:  1 -> 2 -> 3 -> 4
- * Output: 2 -> 1 -> 4 -> 3
- *
- * Notes:
- * - Operate by changing node pointers.
- * - Works for lists with odd/even length.
+ *Problem Statement:
+Given a linked list, swap every two adjacent nodes and return its head. 
+You must solve the problem without modifying the values in the list’s nodes (i.e., only nodes themselves may be changed.)
  */
 class Node {
     constructor(value) {
@@ -57,6 +48,6 @@ console.log("Swapped List Head:", JSON.stringify(swappedList));
 /**
  * Complexity
  *
- * Time:  O(n) — we visit each node once.
- * Space: O(1) — constant extra space (only a few pointers).
+Time Complexity: O(n), where n is the number of nodes in the list.
+Space Complexity: O(n) due to recursive call stack.
  */
