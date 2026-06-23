@@ -8,25 +8,18 @@ let s = 'successes'
 function maxfreqSum(s) {
     let map = {};
     for (let i = 0; i < s.length; i++) {
-        if (!map[s[i]]) {
-            map[s[i]] = 1;
-        } else {
-            ++map[s[i]];
-        }
+        map[s[i]] = !map[s[i]] ? 1 : ++map[s[i]];
     }
     console.log("Map :", map)
     let vowels = ['a', 'e', 'i', 'o', 'u'];
     let maxVowelCount = 0;
     let maxConsonantCount = 0;
-    for (let i = 0; i < s.length; i++) {
-        if (vowels.includes(s[i])) {
-            if (map[s[i]] > maxVowelCount) {
-                maxVowelCount = map[s[i]];
-            }
+    let mapKeys = Object.keys(map);
+    for (let i = 0; i < mapKeys.length; i++) {
+        if (vowels.includes(mapKeys[i])) {
+            maxVowelCount = Math.max(maxVowelCount, map[mapKeys[i]]);
         } else {
-            if (map[s[i]] > maxConsonantCount) {
-                maxConsonantCount = map[s[i]];
-            }
+            maxConsonantCount = Math.max(maxConsonantCount, map[mapKeys[i]]);
         }
     }
     return maxConsonantCount + maxVowelCount;
