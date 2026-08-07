@@ -56,3 +56,8 @@ function groupAnagrams1(strs) {
 }
 
 console.log("Result 1: ", groupAnagrams1(strs))
+/*
+Time & Space Complexity
+Time Complexity: O(n·k), where n = number of strings, k = average length of strings (no sorting)
+Space Complexity: O(n·k), for storing frequency map and result
+*/
