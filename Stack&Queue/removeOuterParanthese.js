@@ -39,3 +39,32 @@ Time Complexity = O(n)
 Space Complexity:
 Space Complexity = O(n)
 */
+
+
+/// Second Approach without stack 
+
+function removeOuterParanthese2(s) {
+    let level = 0;
+    let ans = '';
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(') {
+            ++level;
+            ans += level > 1 ? s[i] : "";
+        }else{
+            ans += level>1 ? s[i] :"";
+            --level;
+        }
+    }
+
+    return ans;
+}
+
+console.log("Result2 ", removeOuterParanthese2(str));
+
+/*
+Time Complexity:
+Time Complexity = O(n)
+
+Space Complexity:
+Space Complexity = O(1)
+*/
